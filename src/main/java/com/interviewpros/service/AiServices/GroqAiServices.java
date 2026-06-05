@@ -21,7 +21,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class GroqAiServices {
 
-    @Value("${GROQ_API_KEY}")
+    @Value("${groq.api.key}")
     private String apiKey;
 
     private final RestTemplate restTemplate;
