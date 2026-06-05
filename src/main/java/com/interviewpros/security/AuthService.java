@@ -45,14 +45,14 @@ public class AuthService {
             throw new IllegalArgumentException("Username Already Exists!");
         }
 
-//        userProfile = userProfileRepository.save(UserProfile
-//                        .builder()
-//                        .name(signUpRequestDto.getName())
-//                        .username(signUpRequestDto.getUsername())
-//                        .password(passwordEncoder.encode(signUpRequestDto.getPassword()))
-//                        .isActive(true)
-//                        .role("ADMIN")
-//                        .build());
+        userProfile = userProfileRepository.save(UserProfile
+                        .builder()
+                        .name(signUpRequestDto.getName())
+                        .username(signUpRequestDto.getUsername())
+                        .password(passwordEncoder.encode(signUpRequestDto.getPassword()))
+                        .isActive(true)
+                        .role("ADMIN")
+                        .build());
 
         return new LoginResponseDto(userProfile.getId(), userProfile.getUsername(), userProfile.getRole());
 
