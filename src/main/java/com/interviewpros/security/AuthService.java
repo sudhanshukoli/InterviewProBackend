@@ -33,7 +33,7 @@ public class AuthService {
         UserProfile userProfile = userProfileRepository.findByUsername(loginRequestDto.getUsername())
                                         .orElseThrow(() -> new RuntimeException("User profile not found"));
 
-        return new LoginResponseDto(userProfile.getId(), userProfile.getUsername(), userProfile.getRole());
+        return new LoginResponseDto(userProfile.getId(), userProfile.getUsername(), userProfile.getRole(), userProfile.getName());
     }
 
 
@@ -54,7 +54,7 @@ public class AuthService {
                         .role("ADMIN")
                         .build());
 
-        return new LoginResponseDto(userProfile.getId(), userProfile.getUsername(), userProfile.getRole());
+        return new LoginResponseDto(userProfile.getId(), userProfile.getUsername(), userProfile.getRole(), userProfile.getName());
 
     }
 }

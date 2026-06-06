@@ -74,19 +74,20 @@ public class GroqAiServices {
 
     public AiFeedbackDto evaluateAnswer(String question, String answer){
 
-        System.out.println("Question - " + question +" answer " + answer);
+        System.out.println("Question -------------- " + question +"---------- answer ------------ " + answer);
 
-        String prompt=" Question: " + question +
-                "Candidate Answer: " + answer +
-                " .Evaluate answer and Give OUTPUT ONLY IN JSON format - score (OUT OF 10) and feedback -" +
-                "Format:" +
-                "{" +
-                "score: <score>," +
-                "  feedback: <feedback>" +
-                "}" +
-                "Do NOT add any explanation outside the JSON DO NOT add any note also." +
-                " I want strictly only mentioned feedback not extra data" +
-                " Do NOT add any extra character";
+        String prompt = "You are an interviewer evaluating a candidate answer.\n" +
+                        "Question: " + question + "\n" +
+                        "Candidate Answer: " + answer + "\n\n" +
+                        "Scoring Rules:\n" +
+                        "- If answer is 'don't know', 'do not know', 'idk', empty, irrelevant, or contains no useful information: score = 0.\n" +
+                        "- If the answer contains phrases like 'don't know', 'not sure', 'no idea', score MUST be 0.\n" +
+                        "- If answer is partially correct: score between 1 and 5.\n" +
+                        "- If answer is mostly correct but misses important details: score between 6 and 8.\n" +
+                        "- If answer is accurate, complete, and technically correct: score between 9 and 10.\n\n" +
+
+                        "Return ONLY valid JSON:\n" +
+                        "{\"score\": <number>, \"feedback\": \"<feedback>\"}";
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiKey);
