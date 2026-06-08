@@ -57,4 +57,11 @@ public class AuthService {
         return new LoginResponseDto(userProfile.getId(), userProfile.getUsername(), userProfile.getRole(), userProfile.getName());
 
     }
+
+    public boolean checkUsername(String username){
+
+        UserProfile userProfile = userProfileRepository.findByUsername(username).orElse(null);
+
+        return userProfile != null;
+    }
 }

@@ -22,11 +22,6 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @GetMapping("/check")
-    public String getLogin(){
-        return "<h2>Sudhanshu Here</h2>";
-    }
-
     @PostConstruct
     public void init(){
         System.out.println("Inside init --------------");
@@ -40,6 +35,11 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<LoginResponseDto> signupUser(@RequestBody SignUpRequestDto signUpRequestDto){
         return ResponseEntity.status(201).body(authService.signup(signUpRequestDto));
+    }
+
+    @PostMapping("/checkUsername")
+    public ResponseEntity<Boolean> checkUsername(@RequestParam String username){
+        return ResponseEntity.status(201).body(authService.checkUsername(username));
     }
 
 }
