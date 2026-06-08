@@ -2,7 +2,6 @@ package com.interviewpros.service.AiServices;
 
 import com.interviewpros.dto.AiDto.AiFeedbackDto;
 import com.interviewpros.dto.AiDto.AiQuestionDto;
-import com.interviewpros.dto.AiDto.QuestionResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -11,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import tools.jackson.core.JsonParser;
 import tools.jackson.databind.ObjectMapper;
 
 import java.util.List;
