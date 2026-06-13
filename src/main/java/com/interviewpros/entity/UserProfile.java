@@ -3,6 +3,8 @@ package com.interviewpros.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -27,5 +29,8 @@ public class UserProfile {
 
     @Column(nullable = false)
     private Boolean isActive;
+
+    @OneToMany(mappedBy = "userProfile")
+    private List<UserDashboard> userDashboard;
 
 }
