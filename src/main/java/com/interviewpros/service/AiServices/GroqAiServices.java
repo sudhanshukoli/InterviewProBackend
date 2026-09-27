@@ -37,7 +37,7 @@ public class GroqAiServices {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         Map<String, Object> requestBody = Map.of(
-                "model", "llama-3.1-8b-instant",
+                "model", "openai/gpt-oss-20b",
                 "messages", List.of(
                         Map.of(
                                 "role", "user",
@@ -92,7 +92,7 @@ public class GroqAiServices {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         Map<String, Object> requestBody = Map.of(
-                "model", "llama-3.1-8b-instant",
+                "model", "openai/gpt-oss-20b",
                 "messages", List.of(
                         Map.of(
                                 "role", "user",
