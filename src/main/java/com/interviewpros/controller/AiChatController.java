@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/chat")
 @RequiredArgsConstructor
-@CrossOrigin("*")
+@CrossOrigin(origins = {"http://localhost:5173", "https://interview-pro-by-sudhanshu.vercel.app"})
 public class AiChatController {
 
 //    private final OllamaAiService ollamaAiService;
