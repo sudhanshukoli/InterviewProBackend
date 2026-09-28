@@ -34,7 +34,7 @@ public class AiChatController {
 
     @PostMapping("/getQuestions")
     public String getQuestions(@RequestBody AiQuestionDto aiQuestionDto) {
-        System.out.println(aiQuestionDto.getQuestions() + " " + aiQuestionDto.getTechStack() + " " + aiQuestionDto.getDifficulty());
+        System.out.println(aiQuestionDto.getQuestions() + " " + aiQuestionDto.getTechStack() + " and " + aiQuestionDto.getDifficulty());
         return groqAiServices.askAI(aiQuestionDto);
     }
 
